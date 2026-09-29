@@ -1,0 +1,12 @@
+Patch Kernel 6.12.94
+diff -ruN a/drivers/net/usb/qmi_wwan.c b/drivers/net/usb/qmi_wwan.c
+--- a/drivers/net/usb/qmi_wwan.c	2025-11-13 19:42:49.730594289 +0700
++++ b/drivers/net/usb/qmi_wwan.c	2025-11-15 23:53:55.991031862 +0700
+@@ -1145,6 +1145,7 @@
+ 	{QMI_QUIRK_SET_DTR(0x1199, 0x90d3, 10)},
+ 	{QMI_MATCH_FF_FF_FF(0x2c7c, 0x0307)},	/* Quectel EM12 */
+ 	{QMI_FIXED_INTF(0x05c6, 0x9026, 3)},
++	{QMI_FIXED_INTF(0x05c6, 0x9026, 6)},
+ 	{QMI_FIXED_INTF(0x05c6, 0x902e, 5)},
+ 	{QMI_FIXED_INTF(0x05c6, 0x9031, 5)},
+ 	{QMI_FIXED_INTF(0x05c6, 0x9032, 4)},

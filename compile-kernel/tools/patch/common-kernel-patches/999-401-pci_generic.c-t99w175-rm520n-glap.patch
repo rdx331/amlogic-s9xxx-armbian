@@ -1,0 +1,28 @@
+Patch Kernel 6.12.94
+diff -ruN a/drivers/bus/mhi/host/pci_generic.c b/drivers/bus/mhi/host/pci_generic.c
+--- a/drivers/bus/mhi/host/pci_generic.c	2026-06-19 18:42:39.000000000 +0700
++++ b/drivers/bus/mhi/host/pci_generic.c	2026-09-11 23:51:35.281795192 +0700
+@@ -791,6 +791,11 @@
+ 		.driver_data = (kernel_ulong_t) &mhi_telit_fn980_hw_v1_info },
+ 	{ PCI_DEVICE(PCI_VENDOR_ID_QCOM, 0x0306),
+ 		.driver_data = (kernel_ulong_t) &mhi_qcom_sdx55_info },
++	/* RM520N-GL variant with Qualcomm vendor and subvendor ID */
++	{ PCI_DEVICE_SUB(PCI_VENDOR_ID_QCOM, 0x0308, PCI_VENDOR_ID_QCOM, 0x5201),
++		.driver_data = (kernel_ulong_t) &mhi_quectel_rm5xx_info },
++	{ PCI_DEVICE_SUB(PCI_VENDOR_ID_QCOM, 0x0308, PCI_VENDOR_ID_QCOM, 0x0308),
++		.driver_data = (kernel_ulong_t) &mhi_quectel_rm5xx_info },
+ 	/* Telit FN990 */
+ 	{ PCI_DEVICE_SUB(PCI_VENDOR_ID_QCOM, 0x0308, 0x1c5d, 0x2010),
+ 		.driver_data = (kernel_ulong_t) &mhi_telit_fn990_info },
+@@ -881,6 +886,11 @@
+ 	/* T99W175 (sdx55), HP variant */
+ 	{ PCI_DEVICE(0x03f0, 0x0a6c),
+ 		.driver_data = (kernel_ulong_t) &mhi_foxconn_t99w175_info },
++	/* T99W175 (sdx55), Lenovo variant */
++	{ PCI_DEVICE(0x105b, 0xe0af),
++		.driver_data = (kernel_ulong_t) &mhi_foxconn_sdx55_info },
++	{ PCI_DEVICE(PCI_VENDOR_ID_FOXCONN, 0xe0c0),
++		.driver_data = (kernel_ulong_t) &mhi_foxconn_t99w175_info },
+ 	/* NETPRISMA LCUR57 (SDX24) */
+ 	{ PCI_DEVICE(PCI_VENDOR_ID_NETPRISMA, 0x1000),
+ 		.driver_data = (kernel_ulong_t) &mhi_netprisma_lcur57_info },
