@@ -79,10 +79,10 @@ on:
       kernel_sign:
         description: "Set the kernel custom signature"
         required: false
-        default: "-ophub"
+        default: "-rdx"
         type: choice
         options:
-          - -ophub
+          - -rdx
           - -yourname
 
 env:
@@ -190,7 +190,7 @@ jobs:
             kernel-${{ inputs.kernel_toolchain }}-${{ matrix.kernel_version }}-
 
       - name: Compile the kernel [ ${{ matrix.kernel_version }} ]
-        uses: ophub/amlogic-s9xxx-armbian@main
+        uses: rdx331/amlogic-s9xxx-armbian@main
         if: ${{ steps.disk.outputs.status == 'success' && !cancelled() }}
         with:
           build_target: kernel
