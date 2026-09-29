@@ -197,6 +197,8 @@ jobs:
           kernel_source: ${{ inputs.kernel_source }}
           kernel_version: ${{ matrix.kernel_version }}
           kernel_auto: ${{ inputs.kernel_auto }}
+          kernel_patch: compile-kernel/tools/patch
+          auto_patch: true
           delete_source: ${{ inputs.delete_source }}
           kernel_package: ${{ inputs.kernel_package }}
           kernel_sign: ${{ inputs.kernel_sign }}
